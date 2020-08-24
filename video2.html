@@ -54,8 +54,8 @@
             meshes = [],
             materials = [],
 
-            xgrid = 50,
-            ygrid = 20;
+            xgrid = 25,
+            ygrid = 10;
 
         var startButton = document.getElementById('startButton');
         startButton.addEventListener('click', function () {
@@ -156,7 +156,7 @@
             // postprocessing
 
             var renderModel = new RenderPass(scene, camera);
-            var effectBloom = new BloomPass(3);
+            var effectBloom = new BloomPass(1);
             var effectCopy = new ShaderPass(CopyShader);
 
             composer = new EffectComposer(renderer);

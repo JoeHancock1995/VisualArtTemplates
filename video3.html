@@ -21,8 +21,8 @@
     </div>
 
     <video id="video" loop crossOrigin="anonymous" playsinline style="display:none">
-        <source src="textures/city4.ogv" type='video/ogg; codecs="theora, vorbis"'>
-        <source src="textures/city4.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
+        <source src="textures/lsd5.ogv" type='video/ogg; codecs="theora, vorbis"'>
+        <source src="textures/lsd5.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'>
     </video>
 
     <script type="module">
@@ -54,8 +54,8 @@
             meshes = [],
             materials = [],
 
-            xgrid = 30,
-            ygrid = 12;
+            xgrid = 25,
+            ygrid = 10;
 
         var startButton = document.getElementById('startButton');
         startButton.addEventListener('click', function () {
@@ -104,8 +104,8 @@
             ux = 1 / xgrid;
             uy = 1 / ygrid;
 
-            xsize = 600 / xgrid;
-            ysize = 254 / ygrid;
+            xsize = 480 / xgrid;
+            ysize = 204 / ygrid;
 
             var parameters = { color: 0xffffff, map: texture };
 
@@ -215,14 +215,14 @@
 
         }
 
-        var h, counter = 10;
+        var h, counter = 1;
 
         function render() {
 
             var time = Date.now() * 0.00005;
 
-            camera.position.x += (mouseX - camera.position.x) * 0.2;
-            camera.position.y += (- mouseY - camera.position.y) * 0.2;
+            camera.position.x += (mouseX - camera.position.x) * 0.05;
+            camera.position.y += (- mouseY - camera.position.y) * 0.05;
 
             camera.lookAt(scene.position);
 
@@ -244,9 +244,9 @@
                     mesh.rotation.x += 0 * mesh.dx;
                     mesh.rotation.y += 10 * mesh.dy;
 
-                    mesh.position.x -= 0 * mesh.dx;
-                    mesh.position.y += 200 * mesh.dy;
-                    mesh.position.z += 600 * mesh.dx;
+                    mesh.position.x -= 150 * mesh.dx;
+                    mesh.position.y += 150 * mesh.dy;
+                    mesh.position.z += 300 * mesh.dx;
 
                 }
 
