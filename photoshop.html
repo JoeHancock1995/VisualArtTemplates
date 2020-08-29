@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Photoshop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="main.css">
+<style>
+    .container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background: rgb(0, 0, 0);
+}
+.toolbox {
+  margin-left: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+label {
+  margin-bottom: 5px;
+}
+:root{
+	--blur: 0;
+	--brightness: 1;
+	--contrast: 100; 
+	--grayscale: 0;
+	--hue: 0;
+	--invert: 0;
+	--opacity: 100; 
+	--saturate: 100;
+	--sepia: 0;
+}
+
+#main-image {
+  transition: all 300ms ease-in-out;
+  filter: blur(calc(1px * var(--blur))) brightness(var(--brightness)) contrast(
+      calc(1% * var(--contrast))
+    ) grayscale(calc(1% * var(--grayscale))) hue-rotate(calc(1deg * var(--hue))) invert(
+      calc(1% * var(--invert))
+    )
+    opacity(calc(1% * var(--opacity))) saturate(calc(1% * var(--saturate))) sepia(calc(1% *
+          var(--sepia)));
+  border: 5px solid #fff;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+    <img src="./1/res_5D47CB26_1.jpg"
+        id="main-image" />
+    <div class="toolbox">
+        <label>
+            Blur
+            <input id="blur" max="20" min="0" step="1" type="range" value="0" />
+        </label>
+        <label>
+            Brightness
+            <input id="brightness" max="1" min="0" step="0.1" type="range" value="1" />
+        </label>
+        <label>
+            Contrast
+            <input id="contrast" max="200" min="0" step="1" type="range" value="100" />
+        </label>
+        <label>
+            Grayscale
+            <input id="grayscale" max="100" min="0" step="1" type="range" value="0" />
+        </label>
+        <label>
+            Hue
+            <input id="hue" max="360" min="0" step="1" type="range" value="0" />
+        </label>
+        <label>
+            Invert
+            <input id="invert" max="100" min="0" step="1" type="range" value="0" />
+        </label>
+        <label>
+            Opacity
+            <input id="opacity" max="100" min="0" step="1" type="range" value="100" />
+        </label>
+        <label>
+            Saturate
+            <input id="saturate" max="200" min="0" step="1" type="range" value="100" />
+        </label>
+        <label>
+            Sepia
+            <input id="sepia" max="100" min="0" step="1" type="range" value="0" />
+        </label>
+    </div>
+</div>
+<script>
+    var img = document.getElementById('main-image');
+    var inputs = document.querySelectorAll('input');
+
+    [].forEach.call(inputs, function (input) {
+        input.addEventListener('input', e => {
+            img.style.setProperty('--' + input.id, input.value);
+        });
+    });
+</script>
+</body>
+</html>
